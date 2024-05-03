@@ -3,7 +3,7 @@ import React from 'react'
 interface User {
     id: number;
     name: string;
-
+    email: string;
 }
 
 const UsersPage = async () => {
@@ -15,9 +15,20 @@ const UsersPage = async () => {
   return (
     <>
     <h1>Users</h1>
-    <ul>
-        {users.map(user => <li key={user.id}>{user.name}</li>)}
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {users.map(user => <tr key={user.id}>
+          <th>{user.name}</th>
+          <th>{user.email}</th>
+        </tr>)}
+        </tbody>
+    </table>
     </>
   )
 }
